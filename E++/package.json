@@ -1,6 +1,6 @@
 {
   "name": "eplusplus-language",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "The E++ language compiler and development server",
   "license": "MIT",
   "type": "module",

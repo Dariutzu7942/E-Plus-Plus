@@ -31,3 +31,33 @@ By default, the compiler writes an HTML file beside the source file. Choose a di
 ```
 
 The generated HTML is standalone and can be opened directly or hosted as a website.
+
+## Runtime programs
+
+Run a general E++ program with the native binary or npm CLI:
+
+```sh
+./build/epp run app.epp
+e++ run app.epp
+```
+
+Runtime syntax:
+
+```epp
+let name = "E++"
+let count = 2 + 3
+print name
+print count
+
+if count == 5
+    print "equal"
+else
+    print "different"
+endif
+
+repeat 3
+    print "hello"
+endrepeat
+```
+
+Supported features include strings, numbers, booleans, variables, arithmetic, comparisons, `if`/`else`/`endif`, and `repeat`/`endrepeat`.

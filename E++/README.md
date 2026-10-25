@@ -1,6 +1,6 @@
 # E++ Language System
 
-E++ is a small, beginner-friendly language for describing interfaces. The first compiler turns an `.epp` file into a standalone HTML page. That page runs in a browser on Windows, Linux, and the web without extra packages.
+E++ is a small, beginner-friendly language with its own native runtime. It can execute general programs and compile `.epp` files into standalone HTML pages.
 
 ## Build it
 
@@ -22,6 +22,7 @@ npm install eplusplus-language
 Commands available after installation:
 
 ```sh
+e++ run examples/runtime.epp
 e++ build app.epp --out app.html
 e++ serve . --port 3000
 ```
@@ -42,7 +43,36 @@ To choose a different output path:
 ./build/epp examples/hello.epp --out hello.html
 ```
 
-## Language preview
+## Runtime preview
+
+```epp
+let name = "E++"
+let count = 2 + 3 * 4
+
+print name
+print count
+
+repeat 3
+    print count
+endrepeat
+
+if count == 14
+    print "done"
+else
+    print "wrong"
+endif
+```
+
+Run it with the native binary or npm CLI:
+
+```sh
+./build/epp run examples/runtime.epp
+e++ run examples/runtime.epp
+```
+
+The runtime supports `let`, `print`, `repeat`/`endrepeat`, `if`/`else`/`endif`, strings, numbers, booleans, variables, arithmetic, and string or numeric comparisons.
+
+## Interface preview
 
 ```epp
 title "My first app"
@@ -55,10 +85,10 @@ Supported statements are `title`, `heading`, `text`, `button`, and `link`. Read 
 
 ## Project status
 
-The HTML compiler is the first working target. Its output works as a website and in desktop browsers on Windows and Linux. Native desktop app packaging is not implemented yet; it can be added later as another compiler target.
+E++ now has a native interpreter and a standalone HTML compiler. Native desktop UI packaging, modules, functions, and bytecode compilation are planned future targets.
 
-Run the compiler tests with:
+Run the native compiler tests with:
 
 ```sh
-python3 -m unittest discover -s tests
+ctest --test-dir build --output-on-failure
 ```

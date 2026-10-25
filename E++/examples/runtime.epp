@@ -1,0 +1,15 @@
+let name = "E++"
+let count = 2 + 3 * 4
+
+print name
+print count
+
+repeat 3
+    print count
+endrepeat
+
+if count == 14
+    print "done"
+else
+    print "wrong"
+endif

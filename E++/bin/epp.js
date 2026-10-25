@@ -34,6 +34,7 @@ function getCompiler() {
 function printHelp() {
   console.log(`Usage:
   e++ build <file.epp> [--out <file.html>]
+  e++ run <file.epp>
   e++ serve [directory] [--port <number>]
   e++ <file.epp> [--out <file.html>]`);
 }
@@ -89,6 +90,8 @@ if (args.length === 0 || args.includes("--help") || args.includes("-h")) {
   printHelp();
 } else if (args[0] === "build") {
   compileFile(args.slice(1));
+} else if (args[0] === "run") {
+  compileFile(args);
 } else if (args[0] === "serve") {
   let directory = ".";
   let port = 3000;

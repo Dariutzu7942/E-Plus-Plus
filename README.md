@@ -15,6 +15,7 @@ Install as an npm package locally for testing:
 ```sh
 cd E++
 npm link
+e++ run examples/runtime.epp
 e++ build examples/hello.epp --out hello.html
 e++ serve examples --port 3000
 ```
@@ -40,7 +41,24 @@ ctest --test-dir E++/build --output-on-failure
 
 The generated HTML can be opened directly in a browser on Windows, Linux, or macOS.
 
-## Example
+## Runtime example
+
+```epp
+let name = "E++"
+let count = 2 + 3 * 4
+print name
+print count
+repeat 3
+    print "repeat"
+endrepeat
+if count == 14
+    print "done"
+endif
+```
+
+Run it with `e++ run app.epp`.
+
+## HTML interface example
 
 ```epp
 title "My page"

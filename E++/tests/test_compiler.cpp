@@ -44,6 +44,20 @@ void testRejectsExecutableLinkSchemes() {
     }
 }
 
+void testRuntimeVariablesAndExpressions() {
+    epp::Runtime runtime;
+    std::ostringstream output;
+    runtime.run("let name = \"E++\"\nlet count = 2 + 3 * 4\nprint name\nprint count", output);
+    assert(output.str() == "E++\n14\n");
+}
+
+void testRuntimeControlFlow() {
+    epp::Runtime runtime;
+    std::ostringstream output;
+    runtime.run("let count = 0\nrepeat 3\nlet count = count + 1\nprint count\nendrepeat\nif count == 3\nprint \"done\"\nelse\nprint \"wrong\"\nendif", output);
+    assert(output.str() == "1\n2\n3\ndone\n");
+}
+
 void testEscapesUserText() {
     const epp::Document document = epp::parse("heading \"<Hello>\"\ntext \"A & B\"");
     const std::string output = epp::render(document);
@@ -56,6 +70,8 @@ int main() {
     testAcceptsOptionalCommandColons();
     testRejectsUnknownStatement();
     testRejectsExecutableLinkSchemes();
+    testRuntimeVariablesAndExpressions();
+    testRuntimeControlFlow();
     testEscapesUserText();
     std::cout << "All E++ compiler tests passed\n";
     return 0;
