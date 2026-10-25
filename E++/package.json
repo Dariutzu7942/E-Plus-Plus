@@ -1,0 +1,26 @@
+{
+  "name": "eplusplus-language",
+  "version": "0.2.0",
+  "description": "The E++ language compiler and development server",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "e++": "bin/epp.js",
+    "epp": "bin/epp.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "CMakeLists.txt",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cmake -S . -B build && cmake --build build",
+    "test": "npm run build && ctest --test-dir build --output-on-failure",
+    "prepack": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["language", "compiler", "interface", "html", "epp"]
+}

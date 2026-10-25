@@ -11,7 +11,24 @@ cmake -S . -B build
 cmake --build build
 ```
 
-## Try it
+## Try it with npm
+
+For an npm package install, publish or link this repository first, then install the package by its package name:
+
+```sh
+npm install eplusplus-language
+```
+
+Commands available after installation:
+
+```sh
+e++ build app.epp --out app.html
+e++ serve . --port 3000
+```
+
+The development server compiles `.epp` files and serves them as HTML.
+
+## Try the native binary
 
 ```sh
 ./build/epp examples/hello.epp

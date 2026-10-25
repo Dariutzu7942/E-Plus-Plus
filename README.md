@@ -10,6 +10,15 @@ E++ is a beginner-friendly interface language that compiles `.epp` source files 
 
 ## Quick start
 
+Install as an npm package locally for testing:
+
+```sh
+cd E++
+npm link
+e++ build examples/hello.epp --out hello.html
+e++ serve examples --port 3000
+```
+
 Requirements:
 
 - CMake 3.16 or newer
