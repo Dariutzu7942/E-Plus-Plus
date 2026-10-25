@@ -18,6 +18,13 @@ void testParsesInterfaceStatements() {
     assert(document.elements[3].values[1] == "https://example.org");
 }
 
+void testAcceptsOptionalCommandColons() {
+    const epp::Document document = epp::parse("text: \"hello!\"");
+    assert(document.elements.size() == 1);
+    assert(document.elements[0].kind == "text");
+    assert(document.elements[0].values[0] == "hello!");
+}
+
 void testRejectsUnknownStatement() {
     try {
         epp::parse("title \"Example\"\nunknown \"value\"");
@@ -46,6 +53,7 @@ void testEscapesUserText() {
 
 int main() {
     testParsesInterfaceStatements();
+    testAcceptsOptionalCommandColons();
     testRejectsUnknownStatement();
     testRejectsExecutableLinkSchemes();
     testEscapesUserText();

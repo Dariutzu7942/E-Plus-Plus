@@ -104,7 +104,10 @@ Document parse(const std::string& source) {
             continue;
         }
 
-        const std::string& command = parts[0];
+        std::string command = parts[0];
+        if (!command.empty() && command.back() == ':') {
+            command.pop_back();
+        }
         if (command == "title" && parts.size() == 2) {
             document.title = parts[1];
         } else if (command == "heading" && parts.size() == 2) {
