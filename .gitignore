@@ -1,0 +1,12 @@
+# Native build output
+build/
+**/build/
+
+# Generated compiler output
+*.html
+*.exe
+*.o
+
+# Python cache (legacy artifacts)
+__pycache__/
+*.pyc
