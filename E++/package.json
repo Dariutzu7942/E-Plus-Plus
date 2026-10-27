@@ -1,7 +1,7 @@
 {
   "name": "eplusplus-language",
-  "version": "0.3.0",
-  "description": "The E++ language compiler and development server",
+  "version": "0.4.0",
+  "description": "The standalone E++ programming language runtime",
   "license": "MIT",
   "type": "module",
   "bin": {
@@ -22,5 +22,5 @@
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["language", "compiler", "interface", "html", "epp"]
+  "keywords": ["language", "interpreter", "compiler", "runtime", "epp"]
 }

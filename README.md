@@ -1,23 +1,41 @@
 # E++
 
-E++ is a beginner-friendly interface language that compiles `.epp` source files into standalone HTML pages.
+E++ is split into two independent packages: a general-purpose language runtime and an optional GUI toolkit.
+
+## Install without npm
+
+From another Linux or macOS machine, clone the repository and run the installer:
+
+```sh
+git clone https://github.com/Dariutzu7942/E-Plus-Plus.git
+cd E-Plus-Plus
+./install.sh
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+This builds and installs both `epp` and `epp-gui` using CMake and a C++17 compiler. To choose another install directory, set `EPP_INSTALL_PREFIX` when running the script.
 
 ## Documentation
 
-- [Language overview and build instructions](E++/README.md)
+- [Language runtime overview and build instructions](E++/README.md)
+- [Optional GUI package and build instructions](E++%20GUI/README.md)
 - [E++ language reference](E++%20Information/language-reference.md)
 - [Learning guide](E++%20Information/README.md)
 
 ## Quick start
 
-Install as an npm package locally for testing:
+After the packages are published to npm, they can also be installed with npm:
 
 ```sh
-cd E++
-npm link
-e++ run examples/runtime.epp
-e++ build examples/hello.epp --out hello.html
-e++ serve examples --port 3000
+npm install -g eplusplus-language
+e++ run app.epp
+```
+
+For GUI features, install the separate package too:
+
+```sh
+npm install -g eplusplus-gui
+e++-gui serve . --port 3000
 ```
 
 Requirements:
@@ -30,7 +48,7 @@ Build the compiler and compile the example:
 ```sh
 cmake -S E++ -B E++/build
 cmake --build E++/build
-./E++/build/epp E++/examples/hello.epp
+./E++/build/epp run E++/examples/runtime.epp
 ```
 
 Run the tests:
@@ -39,7 +57,14 @@ Run the tests:
 ctest --test-dir E++/build --output-on-failure
 ```
 
-The generated HTML can be opened directly in a browser on Windows, Linux, or macOS.
+Both packages require CMake 3.16+ and a C++17 compiler on first use. The language package does not depend on the GUI package.
+
+Before publication, try the packages from this checkout by running `npm link` in each folder:
+
+```sh
+cd E++ && npm link
+cd "../E++ GUI" && npm link
+```
 
 ## Runtime example
 
@@ -58,7 +83,7 @@ endif
 
 Run it with `e++ run app.epp`.
 
-## HTML interface example
+## GUI package example
 
 ```epp
 title "My page"
@@ -67,4 +92,4 @@ text "This is my first E++ page."
 button "Show a message" "It works!"
 ```
 
-The compiler currently targets standalone HTML. Native Windows and Linux interface targets are planned future extensions.
+GUI instructions and interface statements belong to the separate `eplusplus-gui` package.

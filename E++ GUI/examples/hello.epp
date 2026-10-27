@@ -1,0 +1,5 @@
+title "Hello from E++ GUI"
+heading "A little idea, made real."
+text "E++ GUI turns a few readable lines into a page that works in your browser."
+button "Say hello" "You just ran your first E++ GUI app!"
+link "Visit the guide" "https://example.com"

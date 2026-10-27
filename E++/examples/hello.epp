@@ -1,6 +1,0 @@
-# A tiny first E++ interface
-title "Hello from E++"
-heading "A little idea, made real."
-text "E++ turns a few readable lines into a page that works in your browser."
-button "Say hello" "You just ran your first E++ button!"
-link "Visit the E++ guide" "https://example.com"

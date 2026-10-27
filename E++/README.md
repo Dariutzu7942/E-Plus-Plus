@@ -1,6 +1,16 @@
-# E++ Language System
+# E++ Language Runtime
 
-E++ is a small, beginner-friendly language with its own native runtime. It can execute general programs and compile `.epp` files into standalone HTML pages.
+`eplusplus-language` is the standalone E++ language package. It runs general-purpose programs and does not include or require GUI tools.
+
+## Install without npm
+
+From the repository root, run `./install.sh` to build and install both tools under `~/.local/bin`. To build only this package manually:
+
+```sh
+cmake -S E++ -B build-language -DCMAKE_INSTALL_PREFIX="$HOME/.local"
+cmake --build build-language
+cmake --install build-language
+```
 
 ## Build it
 
@@ -11,36 +21,18 @@ cmake -S . -B build
 cmake --build build
 ```
 
-## Try it with npm
-
-For an npm package install, publish or link this repository first, then install the package by its package name:
+## Install with npm after publication
 
 ```sh
-npm install eplusplus-language
+npm install -g eplusplus-language
 ```
+
+Before publication, run `npm link` from this package's folder to use it from the checkout.
 
 Commands available after installation:
 
 ```sh
 e++ run examples/runtime.epp
-e++ build app.epp --out app.html
-e++ serve . --port 3000
-```
-
-The development server compiles `.epp` files and serves them as HTML.
-
-## Try the native binary
-
-```sh
-./build/epp examples/hello.epp
-```
-
-This creates `examples/hello.html`. Open that file in a browser to see the interface.
-
-To choose a different output path:
-
-```sh
-./build/epp examples/hello.epp --out hello.html
 ```
 
 ## Runtime preview
@@ -72,20 +64,9 @@ e++ run examples/runtime.epp
 
 The runtime supports `let`, `print`, `repeat`/`endrepeat`, `if`/`else`/`endif`, strings, numbers, booleans, variables, arithmetic, and string or numeric comparisons.
 
-## Interface preview
-
-```epp
-title "My first app"
-heading "Hello, E++!"
-text "I made this interface with a few simple lines."
-button "Say hello" "Hello from E++!"
-```
-
-Supported statements are `title`, `heading`, `text`, `button`, and `link`. Read [the language reference](../E++%20Information/language-reference.md) for syntax and examples.
-
 ## Project status
 
-E++ now has a native interpreter and a standalone HTML compiler. Native desktop UI packaging, modules, functions, and bytecode compilation are planned future targets.
+The runtime supports variables, strings, numbers, booleans, arithmetic, comparisons, `if`/`else`, and `repeat` loops. Modules, functions, and bytecode compilation are planned. GUI features live in the separate [`eplusplus-gui`](../E++%20GUI/README.md) package.
 
 Run the native compiler tests with:
 

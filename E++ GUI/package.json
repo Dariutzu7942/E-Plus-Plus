@@ -1,0 +1,25 @@
+{
+  "name": "eplusplus-gui",
+  "version": "0.1.0",
+  "description": "Optional E++ tools for building browser-based interfaces",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "e++-gui": "bin/epp-gui.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "CMakeLists.txt",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "cmake -S . -B build && cmake --build build",
+    "test": "npm run build && ctest --test-dir build --output-on-failure",
+    "prepack": "npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["epp", "gui", "interface", "html"]
+}

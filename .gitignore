@@ -1,6 +1,8 @@
 # Native build output
 build/
 **/build/
+build-language/
+build-gui/
 
 # Generated compiler output
 *.html
@@ -9,4 +11,5 @@ build/
 
 # Python cache (legacy artifacts)
 __pycache__/
+_pycache_/
 *.pyc
