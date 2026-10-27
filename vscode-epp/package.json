@@ -1,0 +1,32 @@
+{
+  "name": "epp-language-support",
+  "displayName": "E++ Language Support",
+  "description": "E++ language association and file icon theme",
+  "version": "0.1.0",
+  "publisher": "dariutzu7942",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dariutzu7942/E-Plus-Plus.git"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Programming Languages", "Themes"],
+  "contributes": {
+    "languages": [
+      {
+        "id": "epp",
+        "aliases": ["E++", "epp"],
+        "extensions": [".epp"]
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "epp-icons",
+        "label": "E++ Icons",
+        "path": "./icon-theme.json"
+      }
+    ]
+  }
+}

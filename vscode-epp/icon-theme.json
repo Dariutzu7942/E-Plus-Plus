@@ -1,0 +1,10 @@
+{
+  "iconDefinitions": {
+    "_epp": {
+      "iconPath": "./icons/epp.svg"
+    }
+  },
+  "fileExtensions": {
+    "epp": "_epp"
+  }
+}

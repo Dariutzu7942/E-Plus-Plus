@@ -1,5 +1,9 @@
 # E++
 
+<p align="center">
+    <img src="assets/epp-logo.svg" alt="E++ logo" width="120">
+</p>
+
 E++ is split into two independent packages: a general-purpose language runtime and an optional GUI toolkit.
 
 ## Install without npm
@@ -13,7 +17,7 @@ cd E-Plus-Plus
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-This builds and installs both `epp` and `epp-gui` using CMake and a C++17 compiler. To choose another install directory, set `EPP_INSTALL_PREFIX` when running the script.
+This builds and installs both `epp` and `epp-gui` using CMake and a C++17 compiler. In Codespaces, it also installs the `.epp` file icon extension. To choose another install directory, set `EPP_INSTALL_PREFIX` when running the script.
 
 ## Documentation
 
